@@ -1,0 +1,73 @@
+<section *ngIf="visible" class="pro-init my-3 px-4 py-3">
+    <div class="head pb-3 d-flex justify-content-between align-items-center">
+        <h2>Project Requirement Phase</h2>
+        <button (click)="closeView()" mat-mini-fab color="warn">
+            <mat-icon aria-hidden="false">close</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="pt-3">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <h3>Introduction:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <p>
+                    {{ReqData.introduction}}
+                </p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <h3>Purpose:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <p>
+                    {{ReqData.purpose}}
+                </p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <h3>Intended Audience:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <p>
+                    {{ReqData.intendedAudience}}
+                </p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <h3>Project Description:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <p>
+                    {{ReqData.projectDescription}}
+                </p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <h3>System Features and Requirements:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <p>
+                    {{ReqData.systemFeaturesAndRequirements}}
+                </p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <h3>User Case Diagram:</h3>
+            </div>
+            <div class="col-md-9 mb-3">
+                <div class="img-container">
+                    <img class="img-fluid" [src]="imageURL" alt="">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="button-group d-flex justify-content-evenly align-items-center">
+                    <button (click)="updateItem(ReqData,index.index)" type="button" class="px-5" mat-raised-button>Edit</button>
+                    <button (click)="deleteItem(index.index)" type="button" class="px-5" mat-raised-button color="warn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

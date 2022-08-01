@@ -1,0 +1,42 @@
+<div class="create py-4 mb-2">
+    <button class="px-5" mat-raised-button color="primary" (click)="setPhasesVisible()">Create</button>
+</div>
+<mat-divider></mat-divider>
+<div *ngIf="projectInitData.length || projectReqData.length|| projectDesignData.length" class="content my-3 p-2 d-flex flex-column">
+    <mat-card *ngFor="let item of projectInitData; let i = index" class="example-card">
+        <mat-card-subtitle>Project Initiation Phase</mat-card-subtitle>
+        <mat-card-title>{{item.projectTitle}}</mat-card-title>
+        <mat-card-content>
+          <p class="text-break">{{item.projectInformation}}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions class="d-flex justify-content-evenly">
+            <button (click)="sendInitData(item, i)" mat-raised-button>View</button>
+            <button (click)="deleteItem(1, i)" mat-raised-button color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card *ngFor="let item of projectReqData; let i = index" class="example-card">
+        <mat-card-subtitle>Project Requirement Phase</mat-card-subtitle>
+        <mat-card-title>{{item.introduction}}</mat-card-title>
+        <mat-card-content>
+          <p class="text-break">{{item.purpose}}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions class="d-flex justify-content-evenly">
+            <button (click)="sendReqData(item, i)" mat-raised-button>View</button>
+            <button (click)="deleteItem(2, i)" mat-raised-button color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card *ngFor="let item of projectDesignData; let i = index" class="example-card">
+        <mat-card-subtitle>Project Design Phase</mat-card-subtitle>
+        <mat-card-title>Files</mat-card-title>
+        <mat-card-content>
+          <p class="text-break">Number of images is {{item.files.length}}</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions class="d-flex justify-content-evenly">
+            <button (click)="sendDesignData(item, i)" mat-raised-button>View</button>
+            <button (click)="deleteItem(3, i)" mat-raised-button color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,23 @@
+.design{
+    border: solid 2px rgba(0,0,0,.2);
+    border-radius: 8px;
+}
+
+.design h4{
+    font-size: 0.9rem;
+}
+
+.design .title{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.design .title .add-btn{
+    align-self: end;
+}
+
+.design .img-container img{
+    height: 100px;
+}

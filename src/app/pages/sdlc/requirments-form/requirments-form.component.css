@@ -1,0 +1,17 @@
+.Req{
+    border: solid 2px rgba(0,0,0,.2);
+    border-radius: 8px;
+}
+
+mat-form-field{
+    width: 440px;
+}
+
+mat-form-field textarea{
+    height: 70px;
+    resize: none;
+}
+
+#big-textbox textarea{
+    height: 140px;
+}

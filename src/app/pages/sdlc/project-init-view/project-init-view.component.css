@@ -1,0 +1,22 @@
+.pro-init{
+    border: solid 2px rgba(0,0,0,.2);
+    border-radius: 8px;
+}
+
+h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+p{
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+}

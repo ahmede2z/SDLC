@@ -1,0 +1,14 @@
+<div *ngIf="visible" class="phase-nav">
+    <div class="create pt-3 d-flex justify-content-evenly">
+        <h2 class="pt-1">SDLC Phases</h2>
+        <mat-form-field appearance="outline" color="primary">
+            <mat-label>SDLC Phase</mat-label>
+            <mat-select [(value)]="selectedValue" (valueChange)="sendFormComp()" name="food">
+            <mat-option *ngFor="let sdlc of SDLCs" [value]="sdlc.value">
+                {{sdlc.viewValue}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+</div>

@@ -1,0 +1,80 @@
+<section *ngIf="visible" class="Req my-3 px-4 py-3">
+    <div class="head pb-3 d-flex justify-content-between align-items-center">
+        <h3>Software Requirements Specification (SRS)</h3>
+        <button (click)="closeForm()" mat-mini-fab color="warn">
+            <mat-icon aria-hidden="false">close</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <form class="pt-3" action="" [formGroup]="requirementForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-6 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Introduction</mat-label>
+                    <textarea formControlName="introduction" matInput required></textarea>
+                    <mat-hint>What is the project about?</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('introduction')?.errors?.['required']">
+                        Introduction is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Purpose</mat-label>
+                    <textarea formControlName="purpose" matInput required></textarea>
+                    <mat-hint>Purpose of the Software being developed</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('purpose')?.errors?.['required']">
+                        Purpose is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Intended Audience</mat-label>
+                    <textarea formControlName="intendedAudience" matInput required></textarea>
+                    <mat-hint>Who are the people the project is targeting?</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('intendedAudience')?.errors?.['required']">
+                        Intended Audience is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Description</mat-label>
+                    <textarea formControlName="projectDescription" matInput required></textarea>
+                    <mat-hint>Overall Description of the Software</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('projectDescription')?.errors?.['required']">
+                        Project Description is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field id="big-textbox" class="w-100" appearance="fill">
+                    <mat-label>System Features and Requirements</mat-label>
+                    <textarea formControlName="systemFeaturesAndRequirements" matInput required></textarea>
+                    <mat-hint style="white-space: pre-wrap">1) Function Requirements  2) Non-Function Requirements  3) External Interface Requirements</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('systemFeaturesAndRequirements')?.errors?.['required']">
+                        System Features and Requirements is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Use Case</mat-label>
+                    <ngx-mat-file-input formControlName="useCase" accept="image/*" placeholder="use case" required></ngx-mat-file-input>
+                    <mat-icon matSuffix>folder</mat-icon>
+                    <mat-hint>Upload Use Case as an Image</mat-hint>
+                    <mat-error *ngIf="requirementForm.get('useCase')?.errors?.['required']">
+                        Use Case is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <div class="button-group d-flex justify-content-evenly align-items-center">
+                    <button type="submit" class="px-5" mat-raised-button color="primary">Update</button>
+                    <button type="reset" class="px-5" mat-raised-button color="warn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

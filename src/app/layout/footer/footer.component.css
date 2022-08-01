@@ -1,0 +1,21 @@
+footer{
+    background-color: var(--indigo);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+footer h3{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+footer .team{
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+footer .team:hover{
+    color: var(--pink);
+    transform: scaleX(1.05);
+}

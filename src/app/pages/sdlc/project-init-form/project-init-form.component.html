@@ -1,0 +1,92 @@
+<section *ngIf="visible" class="pro-init my-3 px-4 py-3">
+    <div class="head pb-3 d-flex justify-content-between align-items-center">
+        <h3>Project Charter</h3>
+        <button (click)="closeForm()" mat-mini-fab color="warn">
+            <mat-icon aria-hidden="false">close</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <form class="pt-3" action="" [formGroup]="projectInit" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Title</mat-label>
+                    <input formControlName="projectTitle" matInput placeholder="Project Title" required>
+                    <mat-hint>Ex: Project Documentation</mat-hint>
+                    <mat-error *ngIf="projectInit.get('projectTitle')?.errors?.['required']">
+                        Project Title is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Manager</mat-label>
+                    <input formControlName="projectManager" matInput placeholder="Project Manager" required>
+                    <mat-hint>Ex: Hazem</mat-hint>
+                    <mat-error *ngIf="projectInit.get('projectManager')?.errors?.['required']">
+                        Project Manager is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field class="example-form-field" appearance="fill">
+                    <mat-label>Project Date</mat-label>
+                    <mat-date-range-input
+                      required
+                      formGroupName="date"
+                      [rangePicker]="campaignOnePicker">
+                      <input matStartDate placeholder="Start date" formControlName="startDate" required>
+                      <input matEndDate placeholder="End date" formControlName="endDate" required>
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-error *ngIf="projectInit.get('date')?.status == 'INVALID'">
+                        <span *ngIf="!projectInit.get('date')?.get('endDate')?.errors?.['required']">
+                            Project Start Date is required.
+                        </span>
+                        <span *ngIf="!projectInit.get('date')?.get('startDate')?.errors?.['required']">
+                            Project End Date is required.
+                        </span>
+                        <span *ngIf="projectInit.get('date')?.get('endDate')?.errors?.['required'] && projectInit.get('date')?.get('startDate')?.errors?.['required']">
+                            Project Start & End Date is required.
+                        </span>
+                    </mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Objectives</mat-label>
+                    <textarea formControlName="projectObjectives" matInput required></textarea>
+                    <mat-error *ngIf="projectInit.get('projectObjectives')?.errors?.['required']">
+                        Project Objectives is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Information</mat-label>
+                    <textarea formControlName="projectInformation" matInput required></textarea>
+                    <mat-error *ngIf="projectInit.get('projectInformation')?.errors?.['required']">
+                        Project Information is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-3 d-flex justify-content-center justify-content-sm-start">
+                <mat-form-field appearance="fill">
+                    <mat-label>Project Scope Statement</mat-label>
+                    <textarea formControlName="projectScopeStatement" matInput required></textarea>
+                    <mat-error *ngIf="projectInit.get('projectScopeStatement')?.errors?.['required']">
+                        Project Scope Statement is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <div class="button-group d-flex justify-content-evenly align-items-center">
+                    <button type="submit" class="px-5" mat-raised-button color="primary">Submit</button>
+                    <button type="reset" class="px-5" mat-raised-button color="warn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

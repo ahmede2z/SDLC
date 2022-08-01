@@ -1,0 +1,22 @@
+<section *ngIf="visible" class="pro-init my-3 px-4 py-3">
+    <div class="head pb-3 d-flex justify-content-between align-items-center">
+        <h2>Diagram</h2>
+        <button (click)="closeView()" mat-mini-fab color="warn">
+            <mat-icon aria-hidden="false">close</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="pt-3">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="img-container mb-5">
+                <img [src]="imageURL" alt="" class="img-fluid">
+            </div>
+            <div class="mb-2">
+                <h3>Use Case Diagram</h3>
+            </div>
+            <div>
+                <h4>Requirement Phase</h4>
+            </div>
+        </div>
+    </div>
+</section>

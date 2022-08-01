@@ -1,0 +1,38 @@
+<div class="create py-4 mb-2">
+    <h4>All Images in SDLC Tab</h4>
+</div>
+<mat-divider></mat-divider>
+<div class="content my-3 p-2 d-flex flex-column">
+    <mat-card *ngIf="!(projectReqData.length || projectDesignData.length)" class="example-card">
+        <mat-card-subtitle>All Files</mat-card-subtitle>
+        <mat-card-title class="d-flex justify-content-center align-items-center">
+            No Data Entered yet <mat-icon class="ms-2">sentiment_very_dissatisfied</mat-icon>
+        </mat-card-title>
+    </mat-card>
+    <div *ngIf="projectReqData.length || projectDesignData.length">
+        <mat-card *ngFor="let item of projectReqData" class="example-card">
+            <mat-card-subtitle>Project Requirement Phase</mat-card-subtitle>
+            <mat-card-title>{{item.projectTitle}}</mat-card-title>
+            <mat-card-content>
+              <p class="text-break">{{item.introduction}}'s Use Case</p>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions class="d-flex justify-content-center">
+                <button (click)="sendReqData(item)" mat-raised-button>View</button>
+            </mat-card-actions>
+        </mat-card>
+        <div *ngFor="let items of projectDesignData">
+            <mat-card *ngFor="let item of items.files; let i = index" class="example-card">
+                <mat-card-subtitle>Project Design Phase</mat-card-subtitle>
+                <mat-card-title>{{item.fileName}}</mat-card-title>
+                <mat-card-content>
+                  <p class="text-break">{{item.fileImg.fileNames}}</p>
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions class="d-flex justify-content-center">
+                    <button (click)="sendDesignData(item)" mat-raised-button>View</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

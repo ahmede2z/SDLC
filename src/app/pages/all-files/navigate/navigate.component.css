@@ -1,0 +1,25 @@
+
+.create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create h3{
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.content{
+    border: solid 2px rgba(0,0,0,.2);
+    border-radius: 8px;
+}
+
+.content mat-card{
+    margin-bottom: 8px;
+}
+
+.content mat-card:last-child{
+    margin-bottom: 0px;
+}
